@@ -69,21 +69,27 @@ class GPU:
     def draw_triangle(self):
         pass
 
-    # def interpreter(self):
-    #     mode = str(sys.argv[1])
-    #     if (mode == 'r'):
-    #         #draw rectangle
-    #     else if(mode == 'c'):
-    #         #draw circle
-    #     else if(mode == 's'):
-        
-    #     else:
-    #     pass
+    def interpreter(self):
+        mode = str(sys.argv[1])
+        if mode == 'r':
+            # example: python behavioral.py r [x1] [y1] [x2] [y2]
+            self.draw_rectangle(int(sys.argv[2]), int(sys.argv[3]),int(sys.argv[4]), int(sys.argv[5]))
+        elif mode == 'c':
+            # example: python behavioral.py r [x_centre] [y_centre] [radius]
+            self.draw_circle(int(sys.argv[2]), int(sys.argv[3]),int(sys.argv[4]))
+            #draw circle
+        elif mode == 's':
+            # example: python behavioral.py s [x1] [y1] [width]
+            self.draw_square(int(sys.argv[2]), int(sys.argv[3]),int(sys.argv[4]))
+        else:
+            self.clear_screen()
+        pass
 
 if __name__ == "__main__":
     # time1 = time.time()
     GPU_file = GPU("screen", 640, 480)
-    GPU_file.draw_square(240, 240, 50)
+    GPU_file.interpreter()
+    #GPU_file.draw_square(240, 240, 50)
     # print(time.time() - time1)
     print("Done")
     input()
